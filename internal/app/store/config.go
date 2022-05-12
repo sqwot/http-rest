@@ -5,5 +5,7 @@ type Config struct {
 }
 
 func NewConfig() *Config {
-	return &Config{}
+	return &Config{
+		DatabseURL: "postgres://sqwot:windows@localhost/restapi_dev?sslmode=disable",
+	}
 }
