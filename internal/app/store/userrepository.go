@@ -1,8 +1,6 @@
 package store
 
 import (
-	"http-rest/internal/app/model"
-
 	"github.com/sqwot/http-rest/internal/app/model"
 )
 
@@ -24,5 +22,17 @@ func (r *UserRepository) Create(u *model.User) (*model.User, error) {
 
 // FindByEmail ...
 func (r *UserRepository) FindByEmail(email string) (*model.User, error) {
-	return nil, nil
+	u := &model.User{}
+	if err := r.store.db.QueryRow(
+		"SELECT id, email, encrypted_password FROM users WHERE email = $1",
+		email,
+	).Scan(
+		&u.ID,
+		&u.Email,
+		&u.EncryptedPassword,
+	); err != nil {
+		return nil, err
+	}
+
+	return u, nil
 }
