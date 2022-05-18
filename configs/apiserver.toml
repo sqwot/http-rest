@@ -1,5 +1,4 @@
 bind_addr = ":8080"
 log_level = "debug"
-
-[store]
 database_url = "postgres://sqwot:windows@localhost/restapi_dev?sslmode=disable"
+session_key = "99c8089286a17052892e85c02c748acfaa1ac53875c251f03b0a6534f0cb3f5bc286ba7d9516583bc65cccf44971a1951cf1e393f584ee48bb5f3bd513a04163"
